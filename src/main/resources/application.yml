@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  error:
+    include-message: never        # nunca filtrar mensajes internos
+    include-stacktrace: never
+    include-exception: false
+
+spring:
+  application:
+    name: parcel-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/huertos}
+    username: ${DB_USER:huertos}
+    password: ${DB_PASSWORD:huertos_pass}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true   # rechaza campos no permitidos (mass assignment)
+  mvc:
+    throw-exception-if-no-handler-found: true
