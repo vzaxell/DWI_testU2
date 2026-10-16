@@ -1,5 +1,12 @@
 server:
-  port: 8080
+  port: 8443
+  ssl:
+    enabled: true
+    protocol: TLS
+    enabled-protocols: TLSv1.3,TLSv1.2
+    key-store: ${SSL_KEYSTORE_PATH:file:C:/certs/localhost+2.p12}
+    key-store-type: PKCS12
+    key-store-password: ${SSL_KEYSTORE_PASSWORD:changeit}
   error:
     include-message: never        # nunca filtrar mensajes internos
     include-stacktrace: never
